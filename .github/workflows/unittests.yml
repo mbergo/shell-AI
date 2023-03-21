@@ -1,0 +1,77 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+         # Test 1 - Check that the completion function is set up correctly
+          @test "Completion function is set up correctly" {
+          run source davinci-003-plugin.plugin.zsh
+  
+          [ "$status" -eq 0 ]
+          [ "$output" == "" ]
+          }
+
+          # Test 2 - Check that the preview function is set up correctly
+          @test "Preview function is set up correctly" {
+          run source davinci-003-plugin.plugin.zsh
+  
+          [ "$status" -eq 0 ]
+          [ "$output" == "" ]
+          }
+
+          # Test 3 - Check that the completion is registered correctly
+          @test "Completion is registered correctly" {
+          run source davinci-003-plugin.plugin.zsh
+  
+         [ "$status" -eq 0 ]
+          [ "$output" == "" ]
+          }
+
+          # Test 4 - Check that the preview is registered correctly
+          @test "Preview is registered correctly" {
+          run source davinci-003-plugin.plugin.zsh
+  
+          [ "$status" -eq 0 ]
+          [ "$output" == "" ]
+          }
+
+          # Test 5 - Check that the completion is bound correctly
+          @test "Completion is bound correctly" {
+          run source davinci-003-plugin.plugin.zsh
+  
+          [ "$status" -eq 0 ]
+          [ "$output" == "" ]
+          }
+
+          # Test 6 - Check that the preview is bound correctly
+          @test "Preview is bound correctly" {
+          run source davinci-003-plugin.plugin.zsh
+  
+          [ "$status" -eq 0 ]
+          [ "$output" == "" ]
+          }
